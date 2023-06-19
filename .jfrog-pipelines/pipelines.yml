@@ -9,6 +9,7 @@ pipelines:
           onExecute:
             - exit 1
             - echo "onExecute is the main section where you would issue your build/test commands"
+            - sleep 20
           onSuccess:
             - echo "onSuccess executes if the onStart or onExecute sections completed without errors"
           onFailure:
