@@ -3,6 +3,8 @@ pipelines:
     steps:
       - name: test
         type: Bash
+        configuration:
+          affinityGroup: ag_group1
         execution:
           onStart:
             - echo "onStart can be used to do some setup or initialization of your dependencies to prepare for the execution."
@@ -21,6 +23,7 @@ pipelines:
         configuration:
           inputSteps:
             - name: test
+          affinityGroup: ag_group1
         execution:
           onStart:
             - echo "onStart can be used to do some setup or initialization of your dependencies to prepare for the execution."
