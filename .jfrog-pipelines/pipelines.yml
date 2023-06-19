@@ -1,13 +1,12 @@
 pipelines:
   - name: buildbadge
     steps:
-      - name: fail
+      - name: test
         type: Bash
         execution:
           onStart:
             - echo "onStart can be used to do some setup or initialization of your dependencies to prepare for the execution."
           onExecute:
-            - exit 1
             - echo "onExecute is the main section where you would issue your build/test commands"
             - sleep 20
           onSuccess:
@@ -16,3 +15,18 @@ pipelines:
             - echo "onFailure executes if either onStart or onExecute end in failure or error."
           onComplete:
             - echo "onComplete executes after onSuccess or onFailure"
+
+      - name: test2
+          type: Bash
+          execution:
+            onStart:
+              - echo "onStart can be used to do some setup or initialization of your dependencies to prepare for the execution."
+            onExecute:
+              - echo "onExecute is the main section where you would issue your build/test commands"
+              - sleep 20
+            onSuccess:
+              - echo "onSuccess executes if the onStart or onExecute sections completed without errors"
+            onFailure:
+              - echo "onFailure executes if either onStart or onExecute end in failure or error."
+            onComplete:
+              - echo "onComplete executes after onSuccess or onFailure"
