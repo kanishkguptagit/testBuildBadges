@@ -18,6 +18,9 @@ pipelines:
 
       - name: test2
         type: Bash
+        configuration:
+          inputSteps:
+            - name: test
         execution:
           onStart:
             - echo "onStart can be used to do some setup or initialization of your dependencies to prepare for the execution."
